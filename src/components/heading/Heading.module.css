@@ -1,0 +1,9 @@
+.headingContianer {
+  text-align: center;
+  margin-block-start: 4rem;
+  padding-bottom: 2rem;
+}
+
+.headingContianerParagraph {
+  color: var(--color-base-content);
+}
