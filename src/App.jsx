@@ -28,6 +28,7 @@ function App() {
       idOfMeasurement: crypto.randomUUID(),
     },
   ]);
+  const [result, setResult] = useState("");
 
   // handlers
   const handleAddInputRow = () => {
@@ -56,7 +57,11 @@ function App() {
   /////////////// main calculation
 
   const totalExpositionTime = calculateTotalExpositionTime(measurements);
-  const normalizedSoundLevel = calculateNormalizedNoise(measurements);
+
+  // calculation handlers
+  const handleNoiseCalculation = () => {
+    setResult(calculateNormalizedNoise(measurements));
+  };
 
   ///////////////////////////////
 
@@ -74,7 +79,8 @@ function App() {
           <Display
             numberOfMeasurements={numberOfMeasurements}
             totalExpositionTime={totalExpositionTime}
-            normalizedSoundLevel={normalizedSoundLevel}
+            handleNoiseCalculation={handleNoiseCalculation}
+            result={result}
           />
         </div>
       </div>

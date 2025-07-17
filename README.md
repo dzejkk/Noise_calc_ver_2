@@ -13,7 +13,9 @@
 
 **steps**
 
-- []  init repo.
-- [] think about desing and architecture
-- [] make desing, and basic components without state
-- [] add state and funcianality
+- [x]  init repo.
+- [x] think about desing and architecture
+- [x] make desing, and basic components without state
+- [x] add state and funcionality
+- [ ] lift state up for another components
+- [ ] add submit button funcinality
