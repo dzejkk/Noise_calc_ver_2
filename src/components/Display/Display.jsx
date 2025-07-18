@@ -17,8 +17,12 @@ export default function Display({
       <h1 className={style.displayHeading}>
         {result} <span>(dB)</span>
       </h1>
-      <p>number of measurements: {numberOfMeasurements}</p>
-      <p>exposition in minutes: {totalExpositionTime}</p>
+      <div className={style.detailsInfo}>
+        <p>number of measurements:</p>
+        <p className={style.numberOfMeasurements}>{numberOfMeasurements}</p>
+        <p>exposition in minutes: </p>
+        <p className={style.totalExpositionTime}>{totalExpositionTime}</p>
+      </div>
     </div>
   );
 }

@@ -6,8 +6,9 @@
   margin-top: 2rem;
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
   border-radius: var(--radius-box);
-  padding: 1rem;
-  max-height: 35rem;
+  padding: 1.5rem;
+  max-height: 27rem;
+  border-bottom: 5px solid var(--color-primary);
 }
 
 .displayHeading {
@@ -22,7 +23,7 @@ small {
 
 .displayButton {
   border: none;
-  padding: 1rem;
+  padding: 0.75rem;
   padding-inline: 2rem;
   border-radius: var(--radius-box);
   margin-block: 0.75rem;
@@ -39,4 +40,43 @@ small {
 
 .displayButton:active {
   transform: translateY(-5px);
+}
+
+.detailsInfo {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 0.75rem;
+  width: 100%;
+}
+
+.numberOfMeasurements {
+  justify-self: end;
+  font-weight: 600;
+  grid-column: 3/4;
+}
+
+.totalExpositionTime {
+  justify-self: end;
+  font-weight: 600;
+  grid-column: 3/4;
+}
+
+.detailsInfo > p:nth-child(1) {
+  display: list-item;
+  grid-column: span 2;
+  color: var(--color-base-content);
+}
+
+.detailsInfo > p:nth-child(3) {
+  grid-column: span 2;
+  display: list-item;
+  color: var(--color-base-content);
+}
+
+.detailsInfo > p:nth-child(1)::marker {
+  color: var(--color-secondary);
+}
+
+.detailsInfo > p:nth-child(3)::marker {
+  color: var(--color-accent);
 }

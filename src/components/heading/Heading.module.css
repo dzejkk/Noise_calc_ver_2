@@ -6,4 +6,5 @@
 
 .headingContianerParagraph {
   color: var(--color-base-content);
+  max-width: 65ch;
 }

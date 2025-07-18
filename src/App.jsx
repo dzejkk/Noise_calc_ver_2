@@ -28,7 +28,7 @@ function App() {
       idOfMeasurement: crypto.randomUUID(),
     },
   ]);
-  const [result, setResult] = useState("0dB");
+  const [result, setResult] = useState("0");
 
   // handlers
   const handleAddInputRow = () => {
