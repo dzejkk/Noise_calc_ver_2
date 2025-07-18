@@ -9,6 +9,36 @@ export default function ValueList({
   return (
     <div className={style.listContainer}>
       <h3 className={style.h3}>Enter your Measurements</h3>
+      <div className={style.buttonWrapper}>
+        <button onClick={handleAddInputRow} className={style.addButton}>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            height="14px"
+            viewBox="0 -960 960 960"
+            width="16px"
+            fill="#000000"
+          >
+            <path d="M468.5-469H257v-23h211.5v-211.5h23V-492H703v23H491.5v211.5h-23V-469Z" />
+          </svg>
+        </button>
+
+        <button
+          disabled={measurements.length <= 1}
+          onClick={handleRemoveInputRow}
+          className={style.removeButton}
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            height="14px"
+            viewBox="0 -960 960 960"
+            width="16px"
+            fill="#14110d"
+          >
+            <path d="M257-469v-23h446v23H257Z" />
+          </svg>
+        </button>
+      </div>
+      <hr />
       <div>
         <p className={style.labels}>LAeq [dB]</p>
         <p className={`${style.labels} ${style.labelTwo}`}>In minutes</p>
@@ -51,35 +81,6 @@ export default function ValueList({
           </li>
         ))}
       </ul>
-      <div className={style.buttonWrapper}>
-        <button onClick={handleAddInputRow}>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            height="24px"
-            viewBox="0 -960 960 960"
-            width="24px"
-            fill="#000000"
-          >
-            <path d="M468.5-469H257v-23h211.5v-211.5h23V-492H703v23H491.5v211.5h-23V-469Z" />
-          </svg>
-        </button>
-
-        <button
-          disabled={measurements.length <= 1}
-          onClick={handleRemoveInputRow}
-          className={style.removeButton}
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            height="24px"
-            viewBox="0 -960 960 960"
-            width="24px"
-            fill="#000000"
-          >
-            <path d="M257-469v-23h446v23H257Z" />
-          </svg>
-        </button>
-      </div>
     </div>
   );
 }

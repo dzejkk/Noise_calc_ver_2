@@ -12,7 +12,7 @@
 .AppContainer {
   background-color: var(--color-base-100);
   width: 55rem;
-  min-height: 40rem;
+  min-height: 31rem;
   border: 1px solid var(--color-base-300);
   border-radius: var(--radius-box);
   display: flex;
