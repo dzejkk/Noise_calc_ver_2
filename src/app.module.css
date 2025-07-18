@@ -16,4 +16,6 @@
   border: 1px solid var(--color-base-300);
   border-radius: var(--radius-box);
   display: flex;
+  justify-content: center;
+  gap: 2rem;
 }

@@ -1,0 +1,42 @@
+.container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 2rem;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  border-radius: var(--radius-box);
+  padding: 1rem;
+  max-height: 35rem;
+}
+
+.displayHeading {
+  color: var(--color-primary);
+  width: 15rem;
+  text-align: center;
+}
+
+small {
+  font-size: 0.5rem;
+}
+
+.displayButton {
+  border: none;
+  padding: 1rem;
+  padding-inline: 2rem;
+  border-radius: var(--radius-box);
+  margin-block: 0.75rem;
+  font-size: 1.25rem;
+  color: var(--color-primary-content);
+  background-color: var(--color-primary);
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.displayButton:hover {
+  filter: brightness(1.2);
+}
+
+.displayButton:active {
+  transform: translateY(-5px);
+}
