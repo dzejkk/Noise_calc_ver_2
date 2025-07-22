@@ -5,6 +5,7 @@ export default function ValueList({
   handleInputChange,
   handleAddInputRow,
   handleRemoveInputRow,
+  errors,
 }) {
   return (
     <div className={style.listContainer}>
@@ -60,6 +61,14 @@ export default function ValueList({
                 }}
                 type="number"
                 name="dbInput"
+                placeholder="dB (10-200)"
+                min="10"
+                max="200"
+                className={
+                  errors[`${item.idOfMeasurement}-dbInput`]
+                    ? style.inputError
+                    : style.input
+                }
               />
 
               <label htmlFor={`${item.idOfMeasurement}-time`}>Time</label>
@@ -67,6 +76,9 @@ export default function ValueList({
               <input
                 id={`${item.idOfMeasurement}-time`}
                 type="number"
+                placeholder="exposition (minutes)"
+                min="0.1"
+                step="0.1"
                 name="expositionTime"
                 value={item.expositionTime}
                 onChange={(e) => {
@@ -76,7 +88,24 @@ export default function ValueList({
                     e.target.value // parsing !!
                   );
                 }}
+                className={
+                  errors[`${item.idOfMeasurement}-expositionTime`]
+                    ? style.inputError
+                    : style.input
+                }
               />
+            </div>
+            <div className={style.errorContainer}>
+              {errors[`${item.idOfMeasurement}-dbInput`] && (
+                <span className={style.errorMessage}>
+                  {errors[`${item.idOfMeasurement}-dbInput`]}
+                </span>
+              )}
+              {errors[`${item.idOfMeasurement}-expositionTime`] && (
+                <span className={style.errorMessage}>
+                  {errors[`${item.idOfMeasurement}-expositionTime`]}
+                </span>
+              )}
             </div>
           </li>
         ))}

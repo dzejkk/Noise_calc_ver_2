@@ -38,6 +38,11 @@ input {
   padding: 0.5rem;
 }
 
+input::placeholder {
+  color: var(--color-base-300);
+  font-size: 0.75rem;
+}
+
 .labels {
   color: var(--color-neutral-content);
   display: inline-block;
@@ -46,7 +51,7 @@ input {
 }
 
 .labelTwo {
-  padding-inline-start: 10rem;
+  padding-inline-start: 7.5rem;
 }
 
 .buttonWrapper {
@@ -104,4 +109,25 @@ hr {
 svg {
   stroke: aqua;
   stroke-width: 3px;
+}
+
+.inputError {
+  border: 2px solid #ef4444;
+  background-color: #fef2f2;
+}
+
+.errorMessage {
+  color: #ef4444;
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+  display: block;
+}
+
+.errorContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.errorContainer > span {
+  margin-inline-start: 3.7rem;
 }

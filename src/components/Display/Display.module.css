@@ -15,6 +15,11 @@
   color: var(--color-primary);
   width: 15rem;
   text-align: center;
+  opacity: 1;
+  transition: all 0.3s ease-in-out;
+  @starting-style {
+    opacity: 0;
+  }
 }
 
 small {
@@ -65,12 +70,14 @@ small {
   display: list-item;
   grid-column: span 2;
   color: var(--color-base-content);
+  margin-inline-start: 0.5rem;
 }
 
 .detailsInfo > p:nth-child(3) {
   grid-column: span 2;
   display: list-item;
   color: var(--color-base-content);
+  margin-inline-start: 0.5rem;
 }
 
 .detailsInfo > p:nth-child(1)::marker {

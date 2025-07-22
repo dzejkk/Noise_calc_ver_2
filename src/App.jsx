@@ -8,6 +8,7 @@ import {
   calculateTotalExpositionTime,
   calculateNormalizedNoise,
 } from "./components/utils/noiseCalculations";
+import { useValidation } from "./components/hooks/useValidation";
 
 function App() {
   // state
@@ -30,6 +31,9 @@ function App() {
   ]);
   const [result, setResult] = useState("0");
 
+  //validations with zod
+  const { errors, validateField, validateAllMeasurements } = useValidation();
+
   // handlers
   const handleAddInputRow = () => {
     setMeasurements([
@@ -48,6 +52,7 @@ function App() {
         item.idOfMeasurement === id ? { ...item, [field]: value } : item
       )
     );
+    validateField(id, field, value);
   };
 
   // utils
@@ -60,7 +65,30 @@ function App() {
 
   // calculation handlers
   const handleNoiseCalculation = () => {
-    setResult(calculateNormalizedNoise(measurements));
+    const hasEmptyFields = measurements.some(
+      (measurement) =>
+        !measurement.dbInput.trim() || !measurement.expositionTime.trim()
+    );
+
+    if (hasEmptyFields) {
+      alert("please fill in all fields before evaluating");
+      return;
+    }
+
+    if (!validateAllMeasurements(measurements)) {
+      alert("please fix input errors before calculating");
+      return;
+    }
+
+    // if validtion passes proceed with calculation
+
+    try {
+      const calculatedResult = calculateNormalizedNoise(measurements);
+      setResult(calculatedResult);
+    } catch (error) {
+      alert("Error in calculation, Please chekc your inputs");
+      console.error("Calculation error:", error);
+    }
   };
 
   ///////////////////////////////
@@ -75,6 +103,7 @@ function App() {
             handleInputChange={handleInputChange}
             handleAddInputRow={handleAddInputRow}
             handleRemoveInputRow={handleRemoveInputRow}
+            errors={errors}
           />
           <Display
             numberOfMeasurements={numberOfMeasurements}
